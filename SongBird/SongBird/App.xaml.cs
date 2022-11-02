@@ -1,8 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SongBird.Services;
-using SongBird.Views;
+
 
 namespace SongBird
 {
@@ -13,7 +12,6 @@ namespace SongBird
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

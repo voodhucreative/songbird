@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    x:Class="SongBird.Views.ChirpsPage"
+    Title="SongBird Chirps"
+    BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ChirpsViewModel/>
+    </ContentPage.BindingContext>
+
+    
+
+    <ListView CachingStrategy="RecycleElement"
+              BackgroundColor="Transparent"
+              ItemsSource="{Binding GroupedChirps}"
+              SelectedItem="{Binding SelectedChirp, Mode=TwoWay}"
+              HasUnevenRows="true"
+              IsGroupingEnabled="true"
+              GroupDisplayBinding="{Binding Key}"
+              IsPullToRefreshEnabled="true"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              RefreshCommand="{Binding RefreshCommand}"
+              >
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame BorderColor="Black" CornerRadius="8">
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" Padding="8" Spacing="8" BackgroundColor="Transparent">
+                                <Image Source="{Binding Clip.Image}" WidthRequest="80" HeightRequest="80"/>
+                                <StackLayout>
+                                    <Label TextColor="MediumVioletRed" FontSize="24" Text="{Binding Clip.Name}" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
+                                    <Label TextColor="PaleVioletRed" FontSize="16" Text="{Binding Clip.Artist.Name}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <xct:MediaElement
+                                BackgroundColor="White"
+                                Source="{Binding Clip.SourceUrl}"
+                                ShowsPlaybackControls="True"
+                                AutoPlay="False"
+                                HeightRequest="64"
+                                VerticalOptions="StartAndExpand"/>
+                            <!--<WebView Source="https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"/>-->
+
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
+
