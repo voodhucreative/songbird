@@ -6,10 +6,10 @@ using Xamarin.Forms;
 
 namespace SongBird.Views
 {
-    public partial class ChirpsPage : ContentPage
+    public partial class GreetingsPage : ContentPage
     {
 
-        public ChirpsPage()
+        public GreetingsPage()
         {
             InitializeComponent();
         }

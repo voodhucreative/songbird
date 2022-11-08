@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace SongBird.Models
 {
-    public class Chirp
+    public class Greeting : INotifyPropertyChanged
     {
         Clip clip;
         public Clip Clip
@@ -13,6 +16,7 @@ namespace SongBird.Models
                     return;
 
                 clip = value;
+                OnPropertyChanged();
             }
         }
 
@@ -26,6 +30,7 @@ namespace SongBird.Models
                     return;
 
                 name = value;
+                OnPropertyChanged();
             }
         }
 
@@ -38,13 +43,26 @@ namespace SongBird.Models
                 if (value == image)
                     return;
                 image = value;
+                OnPropertyChanged();
             }
         }
 
-        public Chirp()
+        public Greeting()
         {
            
         }
+
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }
 

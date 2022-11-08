@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "563573855114",
+    "project_id": "songbirdsounds-ca07b",
+    "storage_bucket": "songbirdsounds-ca07b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563573855114:android:77a5df74f85a4daab3ee73",
+        "android_client_info": {
+          "package_name": "com.songbirdsounds.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563573855114-plvltpg8g2t96eu5f9s9hs1tmbi3refc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDETKmI9BIAHEiaholHnn2r8PfRjk91vvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563573855114-plvltpg8g2t96eu5f9s9hs1tmbi3refc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "563573855114-elgic0g2vj9hd9l3h5r85oe5d5q4hdmm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.songbirdsounds.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

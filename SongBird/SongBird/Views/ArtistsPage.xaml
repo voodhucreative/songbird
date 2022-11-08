@@ -8,7 +8,7 @@
     BackgroundColor="White">
 
     <ContentPage.BindingContext>
-        <viewmodels:ChirpsViewModel/>
+        <viewmodels:GreetingsViewModel/>
     </ContentPage.BindingContext>
 
     <RefreshView
@@ -18,8 +18,8 @@
             IsGrouped="true"
             ItemSizingStrategy="MeasureAllItems"
             ItemsLayout="VerticalList"
-            ItemsSource="{Binding GroupedChirps}"
-            SelectedItem="{Binding SelectedChirp, Mode=TwoWay}"
+            ItemsSource="{Binding GroupedGreetings}"
+            SelectedItem="{Binding SelectedGreeting, Mode=TwoWay}"
             RemainingItemsThreshold="1"
             RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
             SelectionMode="Single"
@@ -59,8 +59,8 @@
     <!--
     <ListView CachingStrategy="RecycleElement"
               BackgroundColor="Transparent"
-              ItemsSource="{Binding GroupedChirps}"
-              SelectedItem="{Binding SelectedChirp, Mode=TwoWay}"
+              ItemsSource="{Binding GroupedGreetings}"
+              SelectedItem="{Binding SelectedGreeting, Mode=TwoWay}"
               HasUnevenRows="true"
               IsGroupingEnabled="true"
               GroupDisplayBinding="{Binding Key}"

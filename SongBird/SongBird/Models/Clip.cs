@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace SongBird.Models
 {
-    public class Clip
+    public class Clip : INotifyPropertyChanged
     {
         string name;
         public string Name
@@ -13,6 +16,7 @@ namespace SongBird.Models
                     return;
 
                 name = value;
+                OnPropertyChanged();
             }
         }
 
@@ -25,6 +29,7 @@ namespace SongBird.Models
                 if (value == image)
                     return;
                 image = value;
+                OnPropertyChanged();
             }
         }
 
@@ -38,10 +43,12 @@ namespace SongBird.Models
                     return;
 
                 artist = value;
+                OnPropertyChanged();
             }
         }
 
         string sourceUrl;
+
         public string SourceUrl
         {
             get => sourceUrl;
@@ -51,6 +58,7 @@ namespace SongBird.Models
                     return;
 
                 sourceUrl = value;
+                OnPropertyChanged();
             }
         }
 
@@ -58,6 +66,18 @@ namespace SongBird.Models
         {
 
         }
+
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }
 

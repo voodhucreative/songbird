@@ -4,20 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
     xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
-    x:Class="SongBird.Views.ChirpsPage"
-    Title="SongBird Chirps"
+    x:Class="SongBird.Views.GreetingsPage"
+    Title="SongBird Greetings"
     BackgroundColor="White">
 
     <ContentPage.BindingContext>
-        <viewmodels:ChirpsViewModel/>
+        <viewmodels:GreetingsViewModel/>
     </ContentPage.BindingContext>
-
-    
 
     <ListView CachingStrategy="RecycleElement"
               BackgroundColor="Transparent"
-              ItemsSource="{Binding GroupedChirps}"
-              SelectedItem="{Binding SelectedChirp, Mode=TwoWay}"
+              ItemsSource="{Binding GroupedGreetings}"
+              SelectedItem="{Binding SelectedGreeting, Mode=TwoWay}"
               HasUnevenRows="true"
               IsGroupingEnabled="true"
               GroupDisplayBinding="{Binding Key}"
@@ -45,6 +43,7 @@
                                 AutoPlay="False"
                                 HeightRequest="64"
                                 VerticalOptions="StartAndExpand"/>
+
                             <!--<WebView Source="https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"/>-->
 
                         </StackLayout>
