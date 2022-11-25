@@ -25,7 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>i386, x86_64</MtouchArch>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchSdkVersion>16.0</MtouchSdkVersion>
   </PropertyGroup>
@@ -71,6 +71,7 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="GoogleService-Info.plist" />
+    <Compile Include="CustomShellRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -126,6 +127,22 @@
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\Greeting1.jpeg" />
+    <BundleResource Include="Resources\sbsoundsbannertrans.png" />
+    <BundleResource Include="Resources\icon_profile.png" />
+    <BundleResource Include="Resources\icon_music.png" />
+    <BundleResource Include="Resources\icon_home.png" />
+    <BundleResource Include="Resources\icon_artists.png" />
+    <BundleResource Include="Resources\icon_music%402x.png" />
+    <BundleResource Include="Resources\icon_home%402x.png" />
+    <BundleResource Include="Resources\icon_profile%402x.png" />
+    <BundleResource Include="Resources\icon_artists%402x.png" />
+    <BundleResource Include="Resources\icon_music%403x.png" />
+    <BundleResource Include="Resources\icon_home%403x.png" />
+    <BundleResource Include="Resources\icon_profile%403x.png" />
+    <BundleResource Include="Resources\icon_artists%403x.png" />
+    <BundleResource Include="Resources\icon_create.png" />
+    <BundleResource Include="Resources\icon_create%402x.png" />
+    <BundleResource Include="Resources\icon_create%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

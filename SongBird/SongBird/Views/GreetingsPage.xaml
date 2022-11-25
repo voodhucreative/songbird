@@ -8,11 +8,17 @@
     Title="SongBird Greetings"
     BackgroundColor="White">
 
+    <Shell.TitleView>
+        <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True"/>
+    </Shell.TitleView>
+
     <ContentPage.BindingContext>
         <viewmodels:GreetingsViewModel/>
     </ContentPage.BindingContext>
 
-    <ListView CachingStrategy="RecycleElement"
+    <StackLayout Orientation="Vertical" Padding="24">
+        <Label Text="Top Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <ListView CachingStrategy="RecycleElement"
               BackgroundColor="Transparent"
               ItemsSource="{Binding GroupedGreetings}"
               SelectedItem="{Binding SelectedGreeting, Mode=TwoWay}"
@@ -24,33 +30,41 @@
               RefreshCommand="{Binding RefreshCommand}"
               >
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Frame BorderColor="Black" CornerRadius="8">
-                        <StackLayout Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal" Padding="8" Spacing="8" BackgroundColor="Transparent">
-                                <Image Source="{Binding Clip.Image}" WidthRequest="80" HeightRequest="80"/>
-                                <StackLayout>
-                                    <Label TextColor="MediumVioletRed" FontSize="24" Text="{Binding Clip.Name}" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
-                                    <Label TextColor="PaleVioletRed" FontSize="16" Text="{Binding Clip.Artist.Name}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <!-- clip layout-->
+                        <Frame BorderColor="LightGray" CornerRadius="8" Margin="16" HasShadow="True">
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" Padding="8" Spacing="8" BackgroundColor="Transparent">
+                                    <Image Source="{Binding Clip.Image}" WidthRequest="80" HeightRequest="80"/>
+                                    <StackLayout>
+                                        <Label TextColor="MediumVioletRed" FontSize="24" Text="{Binding Clip.Name}" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
+                                        <Label TextColor="PaleVioletRed" FontSize="16" Text="{Binding Clip.Artist.Name}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                                    </StackLayout>
                                 </StackLayout>
+
+                                <xct:MediaElement
+                                    BackgroundColor="White"
+                                    Source="{Binding Clip.SourceUrl}"
+                                    ShowsPlaybackControls="True"
+                                    AutoPlay="False"
+                                    HeightRequest="64"
+                                    VerticalOptions="StartAndExpand"/>
+
+                                   <!--<WebView Source="{Binding Clip.SourceUrl}"/>-->
                             </StackLayout>
-                            <xct:MediaElement
-                                BackgroundColor="White"
-                                Source="{Binding Clip.SourceUrl}"
-                                ShowsPlaybackControls="True"
-                                AutoPlay="False"
-                                HeightRequest="64"
-                                VerticalOptions="StartAndExpand"/>
+                        </Frame>
+                        <!-- clip layout -->
 
-                            <!--<WebView Source="https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"/>-->
 
-                        </StackLayout>
-                    </Frame>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button CornerRadius="8" TextColor="White" BackgroundColor="#00bf98" Text="Click" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+    </StackLayout>
 </ContentPage>
 

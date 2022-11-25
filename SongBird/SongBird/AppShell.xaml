@@ -14,15 +14,15 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="LightSkyBlue" />
+                <Setter Property="Shell.BackgroundColor" Value="#00bf98" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="DarkBlue" />
+                <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="LightSkyBlue" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#00bf98" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="DarkBlue"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -30,8 +30,11 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Greetings" Icon="icon_feed.png" Route="GreetingsPage" ContentTemplate="{DataTemplate local:GreetingsPage}" />
-        <ShellContent Title="Artists" Icon="icon_about.png" Route="ArtistsPage" ContentTemplate="{DataTemplate local:ArtistsPage}"/>
+        <ShellContent Title="Home" Icon="icon_home.png" Route="LandingPage" ContentTemplate="{DataTemplate local:LandingPage}"/>
+        <ShellContent Title="Greetings" Icon="icon_music.png" Route="GreetingsPage" ContentTemplate="{DataTemplate local:GreetingsPage}" />
+        <ShellContent Title="Create" Icon="icon_create.png" Route="CreateGreetingPage" ContentTemplate="{DataTemplate local:CreateGreetingPage}"/>
+        <ShellContent Title="Artists" Icon="icon_artists.png" Route="ArtistsPage" ContentTemplate="{DataTemplate local:ArtistsPage}"/>
+        <ShellContent Title="Account" Icon="icon_profile.png" Route="AccountPage" ContentTemplate="{DataTemplate local:AccountPage}"/>
     </TabBar>
 
 </Shell>

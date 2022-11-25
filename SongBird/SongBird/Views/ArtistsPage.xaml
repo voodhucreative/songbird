@@ -7,10 +7,22 @@
     Title="Artists"
     BackgroundColor="White">
 
+    <Shell.TitleView>
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Shell.TitleView>
+
     <ContentPage.BindingContext>
         <viewmodels:GreetingsViewModel/>
     </ContentPage.BindingContext>
 
+    <StackLayout Orientation="Vertical" Padding="24">
+        <Label Text="Artists" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+
+    </StackLayout>
+
+
+
+    <!--
     <RefreshView
         Command="{Binding RefreshCommand}"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}">
@@ -37,6 +49,10 @@
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
 
+    -->
+
+
+
             <!--
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -52,10 +68,10 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>-->
 
-
+    <!--
         </CollectionView>
     </RefreshView>
-
+    -->
     <!--
     <ListView CachingStrategy="RecycleElement"
               BackgroundColor="Transparent"

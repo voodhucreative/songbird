@@ -88,7 +88,7 @@ namespace SongBird.Helpers
 
                 Clip c1 = new Clip
                 {
-                    Name = "Fun Song",
+                    Name = "Unbreakable",
                     Artist = new Artist
                     {
                         Name = "Fallen Fields"
@@ -102,9 +102,9 @@ namespace SongBird.Helpers
                 ClipManager.Create("Daft Song", c1.SourceUrl, c1.Artist, c1.Image);
                 ClipManager.Create("Silly Song", c1.SourceUrl, c1.Artist, c1.Image);
 
-                //GreetingManager.Create("Great Clip", c1);
-                //GreetingManager.Create("Funky Clip", c1);
-                //GreetingManager.Create("Dopey Clip", c1);
+                GreetingManager.Create("Great Clip", c1);
+                GreetingManager.Create("Funky Clip", c1);
+                GreetingManager.Create("Dopey Clip", c1);
 
             }
         }

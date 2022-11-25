@@ -16,7 +16,7 @@ namespace SongBird.Helpers
     {
         public bool IsBusy = false;
         public string Message = "";
-        public string DebugImage = "Greeting1.jpeg";
+        public static string DebugImage = "Greeting1.jpeg";
         public string DebugMp3Url = "https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3";
 
         ObservableRangeCollection<Greeting> greetings;
@@ -42,8 +42,6 @@ namespace SongBird.Helpers
             }
         }
 
-        
-
         public bool Init()
         {
             Greetings = new ObservableRangeCollection<Greeting>();
@@ -64,7 +62,7 @@ namespace SongBird.Helpers
             return true;
         }
 
-        public bool Create(string name, Clip clip)
+        public static bool Create(string name, Clip clip)
         {
             Greeting newGreeting = new Greeting
             {
@@ -77,14 +75,13 @@ namespace SongBird.Helpers
             return true;
         }
 
-
         public async Task DeleteGreeting(string name)
         {
             var deletedGreeting = (await DataManager.fc.Child(DataManager.GREETINGS_TABLE).OnceAsync<Greeting>()).FirstOrDefault(d => d.Object.Name == name);
 
             if (deletedGreeting == null)
             {
-                Message = "Cannot find selected Product";
+                Message = "Cannot find selected greeting";
                 IsBusy = false;
                 return;
             }
@@ -92,7 +89,7 @@ namespace SongBird.Helpers
             await DataManager.fc.Child(DataManager.GREETINGS_TABLE + "/" + deletedGreeting.Key).DeleteAsync();
 
             await GetAllGreetings();
-            Message = "Product delete successfully";
+            Message = "Greeting deleted successfully";
         }
 
         public async Task UpdateGreetings(string name)
@@ -105,7 +102,7 @@ namespace SongBird.Helpers
                     Name = "Test Clip",
                     Artist = new Artist
                     {
-                        Name = "Test Artist",
+                        Name = "Spubman",
                         Image = DebugImage,
                         Description = "Test Description",
                     },
@@ -153,7 +150,8 @@ namespace SongBird.Helpers
 
                     Greetings = new ObservableRangeCollection<Greeting>(lst);
 
-                    Grouping<string, Greeting> group = new Grouping<string, Greeting>("T" + DateTime.Now.TimeOfDay, new List<Greeting>());
+
+                    Grouping<string, Greeting> group = new Grouping<string, Greeting>("Popular",/*"T" + DateTime.Now.TimeOfDay,*/ new List<Greeting>());
 
                     foreach(Greeting greet in Greetings)
                     {
@@ -161,6 +159,7 @@ namespace SongBird.Helpers
                     }
 
                     GroupedGreetings.Add(group);
+                    
 
 
                 }

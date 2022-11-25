@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    x:Class="SongBird.Views.AccountPage"
+    Title="Accounts"
+    BackgroundColor="White">
+
+    <Shell.TitleView>
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodels:AccountViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical" Padding="24">
+        <Label Text="Your Account" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <StackLayout HeightRequest="80"></StackLayout>
+        <Label Text="Saved Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <StackLayout HeightRequest="80"></StackLayout>
+        <Label Text="Sent Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <StackLayout HeightRequest="80"></StackLayout>
+        <Label Text="Received Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+
+        <Button CornerRadius="8" TextColor="White" BackgroundColor="#00bf98" Text="Update" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+</ContentPage>

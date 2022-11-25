@@ -23,7 +23,6 @@ namespace SongBird.ViewModels
     {
         int count = 0;
 
-
         string countDisplay = "";
         public string CountDisplay
         {
@@ -34,6 +33,8 @@ namespace SongBird.ViewModels
         public ICommand ButtonClicked { get; }
         public ICommand CallServer { get; }
         public ICommand DelayLoadMoreCommand { get; }
+
+        public AsyncCommand NextButtonClicked { get; }
 
         public AsyncCommand RefreshCommand { get; }
 
@@ -96,11 +97,30 @@ namespace SongBird.ViewModels
 
             RefreshCommand = new AsyncCommand(Refresh);
 
+            NextButtonClicked = new MvvmHelpers.Commands.AsyncCommand(TestFunction);
+
             DelayLoadMoreCommand = new AsyncCommand(DelayLoadMore);
 
             Title = "Browse Greetings";
+ 
+        }
 
-            
+        async Task TestFunction()
+        {
+            await Task.Delay(10);
+
+            GreetingManager.Create("Test"+DateTime.Now.Millisecond,
+                new Clip
+                {
+                    Name = "Unbre" + DateTime.Now.Second,
+                    Artist = new Artist
+                    {
+                        Name = "Fallen Fields"
+                    },
+                    Image = "https://picsum.photos/200",
+                    SourceUrl = "https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"
+                });
+            UpdateGreetings();
         }
 
         public void UpdateGreetings()
@@ -108,6 +128,7 @@ namespace SongBird.ViewModels
             GreetingManager.Init();
             Greetings = GreetingManager.Greetings;
             GroupedGreetings = GreetingManager.GroupedGreetings;
+            Console.WriteLine("Updated");
         }
 
         async Task CallLiveServer()
@@ -115,11 +136,13 @@ namespace SongBird.ViewModels
             await Task.Delay(10);
             UpdateGreetings();
 
-            await GreetingManager.UpdateGreetings("Dopey Clip");
 
+            await GreetingManager.UpdateGreetings("Supery Clip");
 
-            await GreetingManager.DeleteGreeting("Funky Clip");
+            //await GreetingManager.DeleteGreeting("Funky Clip");
         }
+
+
 
         async Task Refresh()
         {

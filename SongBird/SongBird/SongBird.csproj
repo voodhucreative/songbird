@@ -30,4 +30,30 @@
     <Folder Include="Views\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\LandingPage.xaml.cs">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CreateGreetingPage.xaml.cs">
+      <DependentUpon>CreateGreetingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SingleSoundPage.xaml.cs">
+      <DependentUpon>SingleSoundPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SoundsPage.xaml.cs">
+      <DependentUpon>SoundsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SingleGreetingPage.xaml.cs">
+      <DependentUpon>SingleGreetingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

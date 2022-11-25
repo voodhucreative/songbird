@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    x:Class="SongBird.Views.LandingPage"
+    Title="Artists"
+    BackgroundColor="#00bf98">
+
+    <Shell.TitleView>
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodels:LandingViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="64" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+        <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+        <Label Text="Occassions"/>
+
+        <Label Text="Greetings"/>
+
+        <Label Text="Sounds"/>
+
+        <Label Text="Artists"/>
+    </StackLayout>
+</ContentPage>
+
