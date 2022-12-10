@@ -16,9 +16,7 @@ namespace SongBird.Helpers
     {
         public bool IsBusy = false;
         public string Message = "";
-        public static string DebugImage = "Greeting1.jpeg";
-        public string DebugMp3Url = "https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3";
-
+        
         ObservableRangeCollection<Greeting> greetings;
         public ObservableRangeCollection<Greeting> Greetings
         {
@@ -68,7 +66,7 @@ namespace SongBird.Helpers
             {
                 Name = name,
                 Clip = clip,
-                Image = DebugImage
+                Image = StaticData.TEST_IMAGE
             };
             DataManager.PostObject(DataManager.GREETINGS_TABLE, newGreeting);
 
@@ -100,16 +98,17 @@ namespace SongBird.Helpers
                 Clip = new Clip
                 {
                     Name = "Test Clip",
+                    Description = "Clip description and lyrics",
                     Artist = new Artist
                     {
                         Name = "Spubman",
-                        Image = DebugImage,
-                        Description = "Test Description",
+                        Image = StaticData.TEST_IMAGE,
+                        Description = "Artists description",
                     },
-                    Image = DebugImage,
-                    SourceUrl = DebugMp3Url
+                    Image = StaticData.TEST_IMAGE,
+                    SourceUrl = StaticData.TEST_CLIP_URL
                 },
-                Image = DebugImage
+                Image = StaticData.TEST_IMAGE
 
             };
 

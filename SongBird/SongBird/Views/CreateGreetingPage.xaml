@@ -15,36 +15,56 @@
         <viewmodels:CreateGreetingViewModel/>
     </ContentPage.BindingContext>
 
-    <StackLayout Orientation="Vertical" Padding="24">
-        <Label Text="Create a Greeting" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+    <StackLayout Orientation="Vertical" Padding="24" HorizontalOptions="Fill" VerticalOptions="Fill">
+
+
+        <Label Text="Create a Greeting" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
 
         <!-- clip layout-->
         <Frame BorderColor="LightGray" CornerRadius="8" Margin="16" HasShadow="True">
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal" Padding="8" Spacing="8" BackgroundColor="Transparent">
-                    <Image Source="Greeting1.jpeg" WidthRequest="80" HeightRequest="80"/>
+                    <Image Source="{Binding CurrentGreeting.Image}" WidthRequest="80" HeightRequest="80"/>
                     <StackLayout>
-                        <Label TextColor="MediumVioletRed" FontSize="24" Text="New Clip" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
-                        <Label TextColor="PaleVioletRed" FontSize="16" Text="New Artist" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                        <Label TextColor="MediumVioletRed" FontSize="24" Text="{Binding CurrentGreeting.Clip.Name}" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
+                        <Label TextColor="PaleVioletRed" FontSize="16" Text="{Binding CurrentGreeting.Clip.Artist.Name}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
                     </StackLayout>
                 </StackLayout>
 
-                <xct:MediaElement
-                    BackgroundColor="Blue"
-                    Source="https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"
+                <!--<xct:MediaElement
+                    BackgroundColor="Transparent"
+                    Source="{Binding CurrentGreeting.Clip.SourceUrl}"
                     ShowsPlaybackControls="True"
                     AutoPlay="False"
-                    HeightRequest="64"
-                    VerticalOptions="StartAndExpand"/>
+                    HeightRequest="120"
+                    IsVisible="False"
+                    VerticalOptions="StartAndExpand"/>-->
+
             </StackLayout>
         </Frame>
-        <!-- clip layout -->
+        <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Swap" Command="{Binding SwapButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"/>
+        
 
-        <Label Text="Select Message" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
-        <StackLayout HeightRequest="80"></StackLayout>
-        <Label Text="Select Recipient" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <!-- clip layout-->
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+            <Label Text="Lyrics" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            <Editor HeightRequest="80" MaxLength="250" PlaceholderColor="Gray" Placeholder="You'll never break and unbreakable heart." Text="{Binding CurrentGreeting.Clip.Description}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+        </StackLayout>
 
-        <Button CornerRadius="8" TextColor="White" BackgroundColor="#00bf98" Text="Create" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+            <Label Text="Message" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            <Editor HeightRequest="80" WidthRequest="320" MaxLength="250" PlaceholderColor="Gray" Placeholder="Enter message here" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+        </StackLayout>
+
+
+        <!-- recipient layout-->
+        <StackLayout Orientation="Vertical">
+            <Label Text="Select Recipient" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+            <Entry Text="" PlaceholderColor="Gray" Placeholder="Type your recipient here" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        </StackLayout>
+
+
+        <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Create" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
     </StackLayout>
 </ContentPage>
 

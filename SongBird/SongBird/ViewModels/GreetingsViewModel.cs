@@ -48,9 +48,17 @@ namespace SongBird.ViewModels
             {
                 if (value != null)
                 {
-                    Application.Current.MainPage.DisplayAlert("Selected", value.Name, "Ok");
-                    PlayClip();
+                    
+                    MessagingCenter.Send(this, "hello", value);
+
+                    //Application.Current.MainPage.DisplayAlert("Selected", value.Name, "Ok");
+                    //PlayClip();
                     value = null;
+
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Shell.Current.GoToAsync("///CreateGreetingPage");
+                    });
                 }
                 selectedGreeting = value;
                 OnPropertyChanged();
@@ -109,16 +117,17 @@ namespace SongBird.ViewModels
         {
             await Task.Delay(10);
 
-            GreetingManager.Create("Test"+DateTime.Now.Millisecond,
+            GreetingManager.Create("Test "+DateTime.Now.Millisecond,
                 new Clip
                 {
-                    Name = "Unbre" + DateTime.Now.Second,
+                    Name = "Random Song " + DateTime.Now.Second,
+                    Description = "Random song, thingy thingy",
                     Artist = new Artist
                     {
                         Name = "Fallen Fields"
                     },
-                    Image = "https://picsum.photos/200",
-                    SourceUrl = "https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"
+                    Image = StaticData.TEST_IMAGE,
+                    SourceUrl = StaticData.TEST_CLIP_URL
                 });
             UpdateGreetings();
         }
@@ -131,13 +140,14 @@ namespace SongBird.ViewModels
             Console.WriteLine("Updated");
         }
 
+
         async Task CallLiveServer()
         {
             await Task.Delay(10);
             UpdateGreetings();
 
 
-            await GreetingManager.UpdateGreetings("Supery Clip");
+            //await GreetingManager.UpdateGreetings("Supery Clip");
 
             //await GreetingManager.DeleteGreeting("Funky Clip");
         }

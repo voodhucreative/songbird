@@ -48,6 +48,48 @@ namespace SongBird.Models
             }
         }
 
+        string password;
+        public string Password
+        {
+            get => password;
+            set
+            {
+                if (value == password)
+                    return;
+
+                password = value;
+                OnPropertyChanged();
+            }
+        }
+
+        bool isRegistered;
+        public bool IsRegistered
+        {
+            get => isRegistered;
+            set
+            {
+                if (value == isRegistered)
+                    return;
+
+                isRegistered = value;
+                OnPropertyChanged();
+            }
+        }
+
+        bool isLoggedIn;
+        public bool IsLoggedIn
+        {
+            get => isLoggedIn;
+            set
+            {
+                if (value == isLoggedIn)
+                    return;
+
+                isLoggedIn = value;
+                OnPropertyChanged();
+            }
+        }
+
         public User()
         {
 

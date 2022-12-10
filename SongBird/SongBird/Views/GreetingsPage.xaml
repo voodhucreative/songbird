@@ -45,13 +45,14 @@
                                     </StackLayout>
                                 </StackLayout>
 
-                                <xct:MediaElement
+                                <!--<xct:MediaElement
                                     BackgroundColor="White"
                                     Source="{Binding Clip.SourceUrl}"
                                     ShowsPlaybackControls="True"
                                     AutoPlay="False"
-                                    HeightRequest="64"
-                                    VerticalOptions="StartAndExpand"/>
+                                    HeightRequest="120"
+                                    IsVisible="False"
+                                    VerticalOptions="StartAndExpand"/>-->
 
                                    <!--<WebView Source="{Binding Clip.SourceUrl}"/>-->
                             </StackLayout>

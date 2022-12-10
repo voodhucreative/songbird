@@ -17,11 +17,12 @@ namespace SongBird.Helpers
             return true;
         }
 
-        public static bool Create(string name, string sourceUrl, Artist artist, string imageUrl)
+        public static bool Create(string name, string description, string sourceUrl, Artist artist, string imageUrl)
         {
             Clip newClip = new Clip
             {
                 Name = name,
+                Description = description,
                 SourceUrl = sourceUrl,
                 Artist = artist,
                 Image = imageUrl

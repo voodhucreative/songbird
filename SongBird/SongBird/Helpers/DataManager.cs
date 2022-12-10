@@ -20,6 +20,8 @@ namespace SongBird.Helpers
 
         public static FirebaseClient fc;
 
+        static bool populate = false;
+
         public static bool connectFirebase()
         {
             try
@@ -37,18 +39,14 @@ namespace SongBird.Helpers
             }
         }
 
-        public static bool PostObject(string target, Object obj)
+        public static async Task<bool> PostObject(string target, Object obj)
         {
             try
             {
                 if (connectFirebase())
                 {
-
-                    Device.InvokeOnMainThreadAsync(async () =>
-                    {
-                        await fc.Child(target).PostAsync(obj);
-                        return true;
-                    });
+                    await fc.Child(target).PostAsync(obj);
+                    return true;
                 }
             }
             catch (Exception e)
@@ -58,7 +56,8 @@ namespace SongBird.Helpers
             return false;
         }
 
-        static bool populate = false;
+
+        
 
         public static async Task PopulateDebugDatabase()
         {
@@ -66,15 +65,15 @@ namespace SongBird.Helpers
 
             if (populate)
             {
-                UserManager.Create(
+                await UserManager.Create(
                     "Mat",
                     "Howlett",
-                    "mathowlett@gmail.com");
+                    "mathowlett@gmail.com", "test");
 
-                UserManager.Create(
+                await UserManager.Create(
                     "Neil",
                     "Chatterton",
-                    "neilchatt@gmail.com");
+                    "neilchatt@gmail.com", "test");
 
                 ArtistManager.Create(
                     "Fallen Fields",
@@ -89,6 +88,7 @@ namespace SongBird.Helpers
                 Clip c1 = new Clip
                 {
                     Name = "Unbreakable",
+                    Description = "You'll never break me. You'll never break an unbreakable heart.",
                     Artist = new Artist
                     {
                         Name = "Fallen Fields"
@@ -97,10 +97,10 @@ namespace SongBird.Helpers
                     SourceUrl = "https://www.voodhu.com/songbird/artists/fallenfields/clips/ff_unbreakable_heart.mp3"
                 };
 
-                ClipManager.Create("New Song", c1.SourceUrl, c1.Artist, c1.Image);
-                ClipManager.Create("Good Song", c1.SourceUrl, c1.Artist, c1.Image);
-                ClipManager.Create("Daft Song", c1.SourceUrl, c1.Artist, c1.Image);
-                ClipManager.Create("Silly Song", c1.SourceUrl, c1.Artist, c1.Image);
+                ClipManager.Create("New Song", "This is a new song", c1.SourceUrl, c1.Artist, c1.Image);
+                ClipManager.Create("Good Song", "This is a good song", c1.SourceUrl, c1.Artist, c1.Image);
+                ClipManager.Create("Daft Song", "This is a daft song", c1.SourceUrl, c1.Artist, c1.Image);
+                ClipManager.Create("Silly Song", "This is a silly song", c1.SourceUrl, c1.Artist, c1.Image);
 
                 GreetingManager.Create("Great Clip", c1);
                 GreetingManager.Create("Funky Clip", c1);

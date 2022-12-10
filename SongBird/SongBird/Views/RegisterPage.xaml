@@ -2,9 +2,33 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="SongBird.Views.RegisterPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
-</ContentPage>
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    x:Class="SongBird.Views.RegisterPage"
+    Title="Accounts"
+    BackgroundColor="White">
 
+    <Shell.TitleView>
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodels:AccountViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical" Padding="24">
+        <Label Text="Register" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <StackLayout HeightRequest="80"></StackLayout>
+
+        <Entry x:Name="FirstNameEntry" Placeholder="First Name" Text="{Binding FirstName}" Keyboard="Text"/>
+        <Entry x:Name="LastNameEntry" Placeholder="Last Name" Text="{Binding LastName}" Keyboard="Text"/>
+        <Entry x:Name="EmailEntry" Placeholder="Email" Text="{Binding Email}" Keyboard="Email"/>    
+        <Entry x:Name="PasswordEntery" Placeholder="Password" Text="{Binding Password}" IsPassword="True"/>
+
+        <Entry x:Name="ConfirmPasswordEntry" Placeholder="Re Enter Password" Text="{Binding ConfirmPassword}" IsPassword="True" />
+
+        <StackLayout Orientation="Horizontal" Padding="24, 0" VerticalOptions="EndAndExpand">
+            <Button CornerRadius="8" TextColor="White" BackgroundColor="#00bf98" Text="Login" Command="{Binding LoginCommand}" WidthRequest="80" HeightRequest="40" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
+            <Button CornerRadius="8" TextColor="White" BackgroundColor="#00bf98" Text="Register" Command="{Binding SignUpCommand}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

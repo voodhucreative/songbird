@@ -18,12 +18,19 @@
     <StackLayout Orientation="Vertical" Padding="24">
         <Label Text="Your Account" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <StackLayout HeightRequest="80"></StackLayout>
+
+
+        <Entry x:Name="EmailEntry" Placeholder="Email" Text="{Binding Email}" Keyboard="Email"/>    
+        <Entry x:Name="PasswordEntery" Placeholder="Password" Text="{Binding Password}" IsPassword="True"/>    
+        <Entry x:Name="ConfirmPasswordEntry" Placeholder="Re Enter Password" Text="{Binding ConfirmPassword}" IsPassword="True" />    
+        <Button x:Name="Signup" TextColor="#00bf98" BackgroundColor="Transparent" Text="Sign Up" Command="{Binding SignUpCommand}" HorizontalOptions="EndAndExpand"/>
+
+
         <Label Text="Saved Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <StackLayout HeightRequest="80"></StackLayout>
         <Label Text="Sent Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <StackLayout HeightRequest="80"></StackLayout>
         <Label Text="Received Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
-
-        <Button CornerRadius="8" TextColor="White" BackgroundColor="#00bf98" Text="Update" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+        <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Update" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
     </StackLayout>
 </ContentPage>

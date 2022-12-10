@@ -20,6 +20,20 @@ namespace SongBird.Models
             }
         }
 
+        string description;
+        public string Description
+        {
+            get => description;
+            set
+            {
+                if (value == description)
+                    return;
+
+                description = value;
+                OnPropertyChanged();
+            }
+        }
+
         string image;
         public string Image
         {
