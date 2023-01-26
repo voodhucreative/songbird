@@ -15,10 +15,10 @@
         <viewmodels:ArtistsViewModel/>
     </ContentPage.BindingContext>
 
-    <StackLayout Orientation="Vertical" Padding="24">
-        <Label Text="Artists" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+    <StackLayout Orientation="Vertical" Padding="0" Background="#00bf98">
+        <Label FontSize="18" Margin="16, 8" BackgroundColor="#00bf98" TextColor="White" Text="Featured SongBirds" HorizontalOptions ="StartAndExpand" VerticalOptions="Start"/>
         <ListView CachingStrategy="RecycleElement"
-              BackgroundColor="Transparent"
+              BackgroundColor="#00bf98"
               ItemsSource="{Binding GroupedArtists}"
               SelectedItem="{Binding SelectedArtist, Mode=TwoWay}"
               HasUnevenRows="true"
@@ -28,19 +28,23 @@
               IsRefreshing="{Binding IsBusy, Mode=OneWay}"
               RefreshCommand="{Binding RefreshCommand}"
               >
-
             <ListView.ItemTemplate>
                 <DataTemplate>
+
                     <ViewCell>
 
                         <!-- clip layout-->
-                        <Frame BorderColor="LightGray" CornerRadius="8" Margin="16" HasShadow="True">
-                            <StackLayout Orientation="Vertical">
-                                <StackLayout Orientation="Horizontal" Padding="8" Spacing="8" BackgroundColor="Transparent">
-                                    <Image Source="{Binding Image}" WidthRequest="80" HeightRequest="80"/>
-                                    <StackLayout>
-                                        <Label TextColor="MediumVioletRed" FontSize="24" Text="{Binding Name}" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
-                                        <Label TextColor="PaleVioletRed" FontSize="16" Text="{Binding Artist.Name}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                        <Frame BorderColor="#444444" BackgroundColor="White" CornerRadius="0" Margin="0" HasShadow="False" Padding="0">
+                            <StackLayout Orientation="Vertical" Padding="0">
+
+                                <StackLayout Orientation="Horizontal" Padding="0" Spacing="0" BackgroundColor="White">
+                                    <Image Source="{Binding Image}" WidthRequest="140" HeightRequest="140"/>
+                                    <StackLayout Padding="16">
+                                        <Label FontFamily="Raleway-Regular" TextColor="DarkSlateGray" FontSize="20" Text="{Binding Name}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
+                                        <Label FontFamily="Raleway-Regular" TextColor="Gray" FontSize="16" Text="{Binding Artist.Name}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                                        
+                                        <Label FontFamily="Raleway-Regular" TextColor="Gray" FontSize="16" Text="Find out more... " HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                                        
                                     </StackLayout>
                                 </StackLayout>
 

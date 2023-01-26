@@ -32,8 +32,9 @@
     <TabBar>
         <ShellContent Title="Home" Icon="icon_home.png" Route="LandingPage" ContentTemplate="{DataTemplate local:LandingPage}"/>
         <ShellContent Title="Greetings" Icon="icon_music.png" Route="GreetingsPage" ContentTemplate="{DataTemplate local:GreetingsPage}" />
-        <ShellContent Title="Create" Icon="icon_create.png" Route="CreateGreetingPage" ContentTemplate="{DataTemplate local:CreateGreetingPage}"/>
+        <!--<ShellContent Title="Create" Icon="icon_create.png" Route="CreateGreetingPage" ContentTemplate="{DataTemplate local:SingleGreetingPage}"/>-->
         <ShellContent Title="Artists" Icon="icon_artists.png" Route="ArtistsPage" ContentTemplate="{DataTemplate local:ArtistsPage}"/>
+        <ShellContent Title="SongBird" IsVisible="False" Icon="icon_artists.png" Route="SingleArtistPage" ContentTemplate="{DataTemplate local:SingleArtistPage}"/>
         <ShellContent Title="Account" Icon="icon_profile.png" Route="AccountPage" ContentTemplate="{DataTemplate local:AccountPage}"/>
     </TabBar>
 

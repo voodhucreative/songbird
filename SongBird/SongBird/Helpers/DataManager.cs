@@ -18,6 +18,8 @@ namespace SongBird.Helpers
         public static string FirebaseClient = "https://songbirdsounds-ca07b-default-rtdb.europe-west1.firebasedatabase.app/";
         public static string FirebaseSecret = "S622KcLVR9m388JxoGlbBK2ShBcE7A7v31cuPPQ7";
 
+        public static string FILE_ACCESS_TOKEN = "108f8229-07c7-4523-936b-88eb81536039";
+
         public static FirebaseClient fc;
 
         static bool populate = false;

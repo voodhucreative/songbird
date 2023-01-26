@@ -6,7 +6,7 @@
     xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
     x:Class="SongBird.Views.GreetingsPage"
     Title="SongBird Greetings"
-    BackgroundColor="White">
+    BackgroundColor="Transparent">
 
     <Shell.TitleView>
         <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True"/>
@@ -16,10 +16,10 @@
         <viewmodels:GreetingsViewModel/>
     </ContentPage.BindingContext>
 
-    <StackLayout Orientation="Vertical" Padding="24">
-        <Label Text="Top Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+    <StackLayout Orientation="Vertical" Padding="0" Background="#00bf98">
+        <Label FontFamily="Raleway-Regular" FontSize="18" Margin="16, 8" BackgroundColor="#00bf98" TextColor="White" Text="Top Greetings" HorizontalOptions ="StartAndExpand" VerticalOptions="Start"/>
         <ListView CachingStrategy="RecycleElement"
-              BackgroundColor="Transparent"
+              BackgroundColor="#00bf98"
               ItemsSource="{Binding GroupedGreetings}"
               SelectedItem="{Binding SelectedGreeting, Mode=TwoWay}"
               HasUnevenRows="true"
@@ -35,13 +35,23 @@
                     <ViewCell>
 
                         <!-- clip layout-->
-                        <Frame BorderColor="LightGray" CornerRadius="8" Margin="16" HasShadow="True">
-                            <StackLayout Orientation="Vertical">
-                                <StackLayout Orientation="Horizontal" Padding="8" Spacing="8" BackgroundColor="Transparent">
-                                    <Image Source="{Binding Clip.Image}" WidthRequest="80" HeightRequest="80"/>
-                                    <StackLayout>
-                                        <Label TextColor="MediumVioletRed" FontSize="24" Text="{Binding Clip.Name}" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
-                                        <Label TextColor="PaleVioletRed" FontSize="16" Text="{Binding Clip.Artist.Name}" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                        <Frame BorderColor="#444444" BackgroundColor="White" CornerRadius="0" Margin="0" HasShadow="False" Padding="0">
+                            <StackLayout Orientation="Vertical" Padding="0">
+
+                                <StackLayout Orientation="Horizontal" Padding="0" Spacing="0" BackgroundColor="White">
+                                    <!--<Image Source="mathowlett1.png" WidthRequest="128" HeightRequest="128"/>-->
+                                    <Image Source="{Binding Clip.Image}" WidthRequest="92" HeightRequest="92"/>
+                                    <StackLayout Margin="12, 0" Padding="8, 0">
+                                        <Label FontFamily="Raleway-Regular" TextColor="DarkSlateGray" FontSize="20" Text="{Binding Clip.Name}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
+                                        <Label FontFamily="Raleway-Regular" TextColor="Gray" FontSize="16" Text="{Binding Clip.Artist.Name}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
+                                        <StackLayout Margin="0" Padding="16, 0, 0, 8" Orientation="Horizontal">
+                                            <Label FontFamily="Raleway-Regular" TextColor="DarkSlateGray" FontSize="12" Text="PLAY" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+                                            <Image Source="play.png" WidthRequest="24" HeightRequest="24" VerticalOptions="CenterAndExpand"/>
+                                            <Label FontFamily="Raleway-Regular" TextColor="DarkSlateGray" FontSize="12" Text="ADD" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+                                            <Image Source="add.png" WidthRequest="24" HeightRequest="24" VerticalOptions="CenterAndExpand"/>
+                                            <Label FontFamily="Raleway-Regular" TextColor="DarkSlateGray" FontSize="12" Text="SHARE" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+                                            <Image Source="share.png" WidthRequest="24" HeightRequest="24" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
 

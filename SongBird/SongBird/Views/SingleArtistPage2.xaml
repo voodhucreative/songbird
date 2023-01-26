@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="SongBird.Views.SingleArtistPage2"
+    Title="Artists"
+    BackgroundColor="White">
+
+    <Shell.TitleView>
+        <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodels:SingleArtistViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical" Padding="24">
+        <Label TextColor="Black" Text="HELLO" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <Label TextColor="Gray" Text="{Binding CurrentArtist.Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <Image Source="{Binding CurrentArtist.Image}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+    </StackLayout>
+
+</ContentPage>
+

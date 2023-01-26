@@ -12,6 +12,7 @@ namespace SongBird.ViewModels
     {
         public ICommand NextButtonClicked { get; }
         public ICommand SwapButtonClicked { get; }
+        public ICommand PlaySelectedClip { get; }
 
         public Models.Greeting CurrentGreeting { set;  get; }
 
@@ -19,62 +20,36 @@ namespace SongBird.ViewModels
 		{
             MessagingCenter.Subscribe<GreetingsViewModel, Models.Greeting>(this, "hello", async (sender, param) =>
             {
-                Models.Greeting t = JsonConvert.DeserializeObject<Models.Greeting>(JsonConvert.SerializeObject(param));
-
-
-                if (t.Clip.Description == null)
-                {
-                    t.Clip.Description = "Some lyrics";
-                }
-
-                CurrentGreeting.Name = t.Name;
-                CurrentGreeting.Image = t.Image;
-                CurrentGreeting.Clip = t.Clip;
-
-                if (CurrentGreeting.Clip.Artist.Image == null)
-                {
-                    CurrentGreeting.Clip.Artist.Image = StaticData.TEST_IMAGE;
-                }
-
-                if (CurrentGreeting.Clip.Artist.Description == null)
-                {
-                    CurrentGreeting.Clip.Artist.Description = "A fabulous SongBird artist!";
-                }
-                
-
+                Session.CurrentGreeting = JsonConvert.DeserializeObject<Models.Greeting>(JsonConvert.SerializeObject(param));
             });
 
+            CurrentGreeting = Session.CurrentGreeting;
 
             NextButtonClicked = new MvvmHelpers.Commands.Command(GoToNextSection);
             SwapButtonClicked = new MvvmHelpers.Commands.Command(GoToClipSelection);
+            PlaySelectedClip = new MvvmHelpers.Commands.Command(SelectClip);
+        }
 
-            CurrentGreeting = new Models.Greeting
-            {
-                Name = "A Sweet Greet",
-                Image = "Greeting1.jpeg",
-                Clip = new Models.Clip
-                {
-                    Artist = new Models.Artist
-                    {
-                        Name = "Song Bird",
-                        Image = StaticData.TEST_IMAGE,
-                        Description = "A beautiful singing bird"
-                    },
-                    Description = "This message comes to say I love you",
-                    Name = "A Sweet Song",
-                    Image = StaticData.TEST_IMAGE,
-                    SourceUrl = StaticData.TEST_CLIP_URL
-                }
-            };
+        private void PlayClip(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnImageButtonClicked(object sender, EventArgs e)
+        {
+            ClipManager.Play(CurrentGreeting.Clip.SourceUrl);
         }
 
         private void GoToNextSection()
         {
-            string targetPage = "GreetingsPage"; 
+            string targetPage = "GreetingsPage";
+
+            // DEBUG
+            Helpers.UserManager.CurrentUser.IsLoggedIn = true;
 
             if (Helpers.UserManager.CurrentUser.IsLoggedIn)
             {
-                targetPage = "GreetingsPage";
+                targetPage = "SingleGreetingPage";
             }
             else
             {
@@ -84,6 +59,15 @@ namespace SongBird.ViewModels
                     targetPage = "LoginPage";
                 }
             }
+
+            /*
+            MessagingCenter.Send(this, "artistselect", CurrentGreeting.Clip.Artist);
+           
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await Shell.Current.GoToAsync("SingleArtistPage");
+            });
+            */
 
             Device.BeginInvokeOnMainThread(async () =>
             {
@@ -95,8 +79,13 @@ namespace SongBird.ViewModels
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                await Shell.Current.GoToAsync("GreetingsPage");
+                await Shell.Current.GoToAsync("///GreetingsPage");
             });
+        }
+
+        private void SelectClip()
+        {
+            ClipManager.Play(CurrentGreeting.Clip.SourceUrl);
         }
 
     }

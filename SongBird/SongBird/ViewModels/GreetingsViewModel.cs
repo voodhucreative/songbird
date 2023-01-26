@@ -48,16 +48,13 @@ namespace SongBird.ViewModels
             {
                 if (value != null)
                 {
-                    
+                    Session.CurrentGreeting = value;
                     MessagingCenter.Send(this, "hello", value);
-
-                    //Application.Current.MainPage.DisplayAlert("Selected", value.Name, "Ok");
-                    //PlayClip();
                     value = null;
 
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        await Shell.Current.GoToAsync("///CreateGreetingPage");
+                        await Shell.Current.GoToAsync("/CreateGreetingPage");
                     });
                 }
                 selectedGreeting = value;
@@ -117,7 +114,7 @@ namespace SongBird.ViewModels
         {
             await Task.Delay(10);
 
-            GreetingManager.Create("Test "+DateTime.Now.Millisecond,
+            GreetingManager.Create("Test " + DateTime.Now.Millisecond,
                 new Clip
                 {
                     Name = "Random Song " + DateTime.Now.Second,

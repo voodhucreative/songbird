@@ -11,6 +11,7 @@
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.6.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -22,6 +23,18 @@
     <None Remove="Xamarin.CommunityToolkit" />
     <None Remove="FirebaseDatabase.net" />
     <None Remove="Plugin.CloudFirestore" />
+    <None Remove="Xam.Plugin.SimpleAudioPlayer" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\Fonts\" />
+    <None Remove="Resources\Fonts\Raleway-Regular.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Bold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Heavy.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Light.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Medium.ttf" />
+    <None Remove="Resources\Fonts\Raleway-SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Thin.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -29,6 +42,8 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\LandingPage.xaml.cs">
@@ -55,5 +70,16 @@
     <Compile Update="Views\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-ExtraLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Heavy.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Thin.ttf" />
   </ItemGroup>
 </Project>

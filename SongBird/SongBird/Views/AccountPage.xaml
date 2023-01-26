@@ -16,7 +16,7 @@
     </ContentPage.BindingContext>
 
     <StackLayout Orientation="Vertical" Padding="24">
-        <Label Text="Your Account" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <Label FontFamily="Raleway-Regular" Text="Your Account" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <StackLayout HeightRequest="80"></StackLayout>
 
 
@@ -26,11 +26,11 @@
         <Button x:Name="Signup" TextColor="#00bf98" BackgroundColor="Transparent" Text="Sign Up" Command="{Binding SignUpCommand}" HorizontalOptions="EndAndExpand"/>
 
 
-        <Label Text="Saved Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <Label FontFamily="Raleway-Regular" Text="Saved Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <StackLayout HeightRequest="80"></StackLayout>
-        <Label Text="Sent Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <Label FontFamily="Raleway-Regular" Text="Sent Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <StackLayout HeightRequest="80"></StackLayout>
-        <Label Text="Received Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+        <Label FontFamily="Raleway-Regular" Text="Received Greetings" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
         <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Update" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
     </StackLayout>
 </ContentPage>

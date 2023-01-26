@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmHelpers.Commands;
+using Newtonsoft.Json;
 
 namespace SongBird.ViewModels
 {
@@ -19,19 +20,20 @@ namespace SongBird.ViewModels
             {
                 if (value != null)
                 {
-
-                    MessagingCenter.Send(this, "hello", value);
+                    Session.CurrentArtist = value;
+                    MessagingCenter.Send(this, "artistselect", value);
                     value = null;
 
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        await Shell.Current.GoToAsync("///CreateGreetingPage");
+                        await Shell.Current.GoToAsync("/SingleArtistPage");
                     });
                 }
                 selectedArtist = value;
                 OnPropertyChanged();
             }
         }
+
 
         ObservableRangeCollection<Artist> artists;
         public ObservableRangeCollection<Artist> Artists
@@ -64,6 +66,21 @@ namespace SongBird.ViewModels
 
         public ArtistsViewModel()
 		{
+            /*
+            MessagingCenter.Subscribe<GreetingsViewModel, Models.Greeting>(this, "artistselect", async (sender, param) =>
+            {
+                Models.Greeting t = JsonConvert.DeserializeObject<Models.Greeting>(JsonConvert.SerializeObject(param));
+
+
+                if (t.Clip.Description == null)
+                {
+                    t.Clip.Description = "Some lyrics";
+                }
+
+                SelectedArtist.Name = t.Name;
+
+            });*/
+
             ArtistManager = new ArtistManager();
 
             UpdateArtists();

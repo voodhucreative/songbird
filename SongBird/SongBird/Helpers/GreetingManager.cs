@@ -158,9 +158,6 @@ namespace SongBird.Helpers
                     }
 
                     GroupedGreetings.Add(group);
-                    
-
-
                 }
             }
             catch (Exception ex)

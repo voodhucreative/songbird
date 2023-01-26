@@ -9,7 +9,7 @@ namespace SongBird.ViewModels
 		{
             Device.BeginInvokeOnMainThread(async () =>
             {
-                await Shell.Current.GoToAsync("GreetingsPage");
+                //await Shell.Current.GoToAsync("GreetingsPage");
             });  
         }
 	}

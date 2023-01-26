@@ -17,13 +17,13 @@
 
     <StackLayout Padding="64" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
         <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
-        <Label Text="Occassions"/>
+        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="32" FontFamily="Raleway-Bold" TextColor = "White" Text="Occassions"/>
 
-        <Label Text="Greetings"/>
+        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="32" FontFamily="Raleway-Bold" TextColor = "White" Text="Greetings"/>
 
-        <Label Text="Sounds"/>
+        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="32" FontFamily="Raleway-Bold" TextColor = "White" Text="Sounds"/>
 
-        <Label Text="Artists"/>
+        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="32" FontFamily="Raleway-Bold" TextColor = "White" Text="Artists"/>
     </StackLayout>
 </ContentPage>
 

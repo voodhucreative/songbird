@@ -12,7 +12,10 @@ namespace SongBird
         {
             InitializeComponent();
 
+            Helpers.HouseKeeper.CleanUp();
+
             MainPage = new AppShell();
+
         }
 
         protected override void OnStart ()

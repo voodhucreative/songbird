@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="SongBird.Views.SingleArtistPage"
+    Title="Artists"
+    BackgroundColor="White">
+
+    <Shell.TitleView>
+        <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodels:SingleArtistViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="16" Spacing="8">
+            <Label FontFamily="Raleway-ExtraBold" FontAttributes="Bold" FontSize="22" TextColor="Black" Text="{Binding CurrentArtist.Name}" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+            <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="14" TextColor="Gray" Text="Singer / Songwriter / Musician from the UK" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Image Source="{Binding CurrentArtist.Image}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="16, 16, 16, 8">
+                    <Image Source="Greeting1.jpeg" WidthRequest="32" HeightRequest="32" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+                    <Label FontFamily="Raleway-Light" FontAttributes="Italic" FontSize="14" TextColor="#444444" Text="Mat has been writing and recording finely crafted songs for over three decades. A fabulous SongBird that always creates moving, emotive and unique messages through their music. Please support them by hitting their links, liking their pages, buying their music and sharing their music wherever you can!" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+
+            </StackLayout>
+            <Label FontFamily="Raleway-Bold" FontAttributes="Bold" FontSize="18" TextColor="Black" Text="Check Mat out on" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+        
+            <StackLayout Spacing="16" Orientation="Horizontal" Padding="16" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Vertical">
+                    <Image Source="bandcamp_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToBandcamp" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="BANDCAMP" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Image Source="soundcloud_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToSoundcloud" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="SOUNDCLOUD" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Image Source="spotify_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToSpotify" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="SPOTIFY" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Image Source="youtube_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToYoutube" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="YOUTUBE" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Spacing="16" Orientation="Horizontal" Padding="16" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Vertical">
+                    <Image Source="facebook_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToFacebook" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="FACEBOOK" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Image Source="instagram_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToInstagram" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="INSTAGRAM" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Image Source="tiktock_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToTiktok" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="TIKTOK" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Image Source="twitter_logo.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToTwitter" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontFamily="Raleway-Regular" FontAttributes="Bold" FontSize="9" TextColor="#444444" Text="TWITTER" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+                </StackLayout> 
+            </StackLayout>
+
+            <Label FontFamily="Raleway-Bold" FontAttributes="Bold" FontSize="18" TextColor="Black" Text="Mat's SongBird Sounds" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"/>
+        
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
