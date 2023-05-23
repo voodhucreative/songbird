@@ -9,7 +9,9 @@
     BackgroundColor="Transparent">
 
     <Shell.TitleView>
-        <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" HeightRequest="52" Aspect="AspectFit"/>
+        </StackLayout>
     </Shell.TitleView>
 
     <ContentPage.BindingContext>

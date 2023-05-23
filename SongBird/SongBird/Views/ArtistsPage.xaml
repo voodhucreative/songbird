@@ -8,7 +8,9 @@
     BackgroundColor="White">
 
     <Shell.TitleView>
-            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" HeightRequest="52" Aspect="AspectFit"/>
+        </StackLayout>
     </Shell.TitleView>
 
     <ContentPage.BindingContext>
@@ -16,7 +18,19 @@
     </ContentPage.BindingContext>
 
     <StackLayout Orientation="Vertical" Padding="0" Background="#00bf98">
-        <Label FontSize="18" Margin="16, 8" BackgroundColor="#00bf98" TextColor="White" Text="Featured SongBirds" HorizontalOptions ="StartAndExpand" VerticalOptions="Start"/>
+        <StackLayout Orientation="Horizontal" Padding="0" Background="#00ffffff">
+            <Label FontSize="18" Margin="16, 8" BackgroundColor="#00ffffff" TextColor="White" Text="Featured SongBirds" HorizontalOptions ="StartAndExpand" VerticalOptions="Start"/>
+            <Label FontSize="18" Margin="16, 8" BackgroundColor="#00ffffff" TextColor="White" Text="+ Add" HorizontalOptions ="EndAndExpand" VerticalOptions="Start">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddArtistCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+
+        
+
+
         <ListView CachingStrategy="RecycleElement"
               BackgroundColor="#00bf98"
               ItemsSource="{Binding GroupedArtists}"

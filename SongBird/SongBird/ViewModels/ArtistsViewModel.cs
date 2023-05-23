@@ -60,6 +60,7 @@ namespace SongBird.ViewModels
 
         public ICommand CallServer { get; }
         public ICommand DelayLoadMoreCommand { get; }
+        public ICommand AddArtistCommand { get; }
 
         public AsyncCommand RefreshCommand { get; }
         ArtistManager ArtistManager;
@@ -85,6 +86,8 @@ namespace SongBird.ViewModels
 
             UpdateArtists();
 
+            AddArtistCommand = new AsyncCommand(AddArtist);
+
             CallServer = new AsyncCommand(CallLiveServer);
 
             RefreshCommand = new AsyncCommand(Refresh);
@@ -98,6 +101,15 @@ namespace SongBird.ViewModels
             Artists = ArtistManager.Artists;
             GroupedArtists = ArtistManager.GroupedArtists;
             Console.WriteLine("Updated");
+        }
+
+        async Task AddArtist()
+        {
+            await Task.Delay(10);
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await Shell.Current.GoToAsync("/CreateArtistPage");
+            });
         }
 
         async Task CallLiveServer()

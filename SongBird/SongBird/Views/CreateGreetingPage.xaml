@@ -9,7 +9,9 @@
     BackgroundColor="White">
     
     <Shell.TitleView>
-            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="Center" VerticalOptions="Center" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <Image Source="sbsoundsbannertrans.png" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" HeightRequest="52" Aspect="AspectFit"/>
+        </StackLayout>
     </Shell.TitleView>
 
     <ContentPage.BindingContext>
@@ -19,16 +21,6 @@
     <ScrollView>
 
         <StackLayout Orientation="Vertical" Padding="24" HorizontalOptions="Fill">
-
-        <!--
-        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 16">
-            <Label Text="Create a Greeting" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
-        </StackLayout>
-
-        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 16">
-            <Image Source="Greeting1.jpeg" WidthRequest="64" HeightRequest="64" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
-            <Label FontAttributes="Italic" Text="&quot;Select the clip you'd like to share, add an optional personalised message, then send your greeting to your recipient!&quot;" TextColor="Gray" FontSize = "12" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
-        </StackLayout>-->
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 16">
             
@@ -64,72 +56,6 @@
                     Opacity="0.5"/>
          </Grid>   
 
-
-            <!--
-        <Grid VerticalOptions="StartAndExpand" ColumnSpacing="0" RowSpacing="0">
-            <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="320"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-
-            
-
-
-
-            
-            <xct:MediaElement
-                    Source="{Binding CurrentGreeting.Clip.SourceUrl}"
-                    ShowsPlaybackControls="True"
-                    AutoPlay="False"
-                    BackgroundColor="Transparent"
-                    Opacity="0.5"
-                    Grid.Column="0" Grid.Row="0"/>
-            <Image Source="{Binding CurrentGreeting.Clip.Image}" Grid.Column="0" Grid.Row="0" Aspect="Fill"/>
-            
-         </Grid>-->
-
-            <!--<xct:MediaElement
-                    Source="https://firebasestorage.googleapis.com/v0/b/songbirdsounds-ca07b.appspot.com/o/ff_unbreakable_heart.mp3?alt=media&amp;token=108f8229-07c7-4523-936b-88eb81536039"
-                    ShowsPlaybackControls="True"
-                    AutoPlay="False"
-                    BackgroundColor="Transparent"
-                    Opacity="0.25"
-                    Grid.Column="0" Grid.Row="0"/>-->
-        <!--
-            <Frame Grid.Column="0" Grid.Row="0" BorderColor="#00bf98" BackgroundColor="Black" CornerRadius="0" Margin="0" HasShadow="False" Padding="0" >
-                <StackLayout Orientation="Vertical" Padding="0">
-                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="0" BackgroundColor="Transparent">
-                        <StackLayout Margin="12, 0" Padding="8, 0">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding PlaySelectedClip}"/>
-                            </StackLayout.GestureRecognizers>
-                            <Label TextColor="White" FontSize="20" Text="{Binding CurrentGreeting.Clip.Name}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand" VerticalTextAlignment="End"/>
-                            <Label TextColor="WhiteSmoke" FontSize="16" Text="{Binding CurrentGreeting.Clip.Artist.Name}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="StartAndExpand" VerticalTextAlignment="Start"/>
-                                <StackLayout Margin="0" Padding="16, 0, 0, 8" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                <Label TextColor="DarkSlateGray" FontSize="12" Text="PLAY" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
-                                <Image Source="play.png" WidthRequest="24" HeightRequest="24" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
-                                <Label TextColor="DarkSlateGray" FontSize="12" Text="ADD" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
-                                <Image Source="add.png" WidthRequest="24" HeightRequest="24" VerticalOptions="CenterAndExpand"/>
-                                <Label TextColor="DarkSlateGray" FontSize="12" Text="SHARE" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
-                                <Image Source="share.png" WidthRequest="24" HeightRequest="24" VerticalOptions="CenterAndExpand"/>
-                            </StackLayout>
-                        </StackLayout>
-                    
-                    </StackLayout>
-
-                <xct:MediaElement
-                    Source="{Binding CurrentGreeting.Clip.SourceUrl}"
-                    ShowsPlaybackControls="True"
-                    HeightRequest="120"
-                    AutoPlay="False"
-                    BackgroundColor="White"
-                    Opacity="0.5"/>
-                </StackLayout>
-
-            </Frame>-->
 
         <StackLayout Orientation="Vertical" Padding="16, 0">
             <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Swap Clip" Command="{Binding SwapButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"/>
@@ -169,7 +95,6 @@
         
         <!-- clip layout -->
 
-        
 
         <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Create" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
     </StackLayout>

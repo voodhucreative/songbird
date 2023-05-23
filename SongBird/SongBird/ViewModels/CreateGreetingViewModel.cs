@@ -11,6 +11,7 @@ namespace SongBird.ViewModels
     public class CreateGreetingViewModel
     {
         public ICommand NextButtonClicked { get; }
+        public ICommand ReplaceImage { get; }
         public ICommand SwapButtonClicked { get; }
         public ICommand PlaySelectedClip { get; }
 
@@ -26,8 +27,17 @@ namespace SongBird.ViewModels
             CurrentGreeting = Session.CurrentGreeting;
 
             NextButtonClicked = new MvvmHelpers.Commands.Command(GoToNextSection);
+            ReplaceImage = new MvvmHelpers.Commands.Command(PickNewImage);
             SwapButtonClicked = new MvvmHelpers.Commands.Command(GoToClipSelection);
             PlaySelectedClip = new MvvmHelpers.Commands.Command(SelectClip);
+        }
+
+        private void PickNewImage()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var photo = await Xamarin.Essentials.MediaPicker.PickPhotoAsync();
+            });
         }
 
         private void PlayClip(object obj)
@@ -49,6 +59,11 @@ namespace SongBird.ViewModels
 
             if (Helpers.UserManager.CurrentUser.IsLoggedIn)
             {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Tools.ShareText("sharing a thinbg from song bird");
+                });
+                
                 targetPage = "SingleGreetingPage";
             }
             else

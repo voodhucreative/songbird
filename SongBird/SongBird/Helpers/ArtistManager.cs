@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using MvvmHelpers;
 using SongBird.Models;
+using Xamarin.Forms;
 
 namespace SongBird.Helpers
 {
@@ -51,7 +52,6 @@ namespace SongBird.Helpers
 
         public bool Init()
         {
-
             SelectedArtist = new Models.Artist
             {
                 Name = "Songy Bird",
@@ -86,7 +86,10 @@ namespace SongBird.Helpers
                 Image = imageUrl
             };
 
-            DataManager.PostObject(DataManager.ARTISTS_TABLE, newArtist);
+            Device.InvokeOnMainThreadAsync(async () =>
+            {
+                await DataManager.PostObject(DataManager.ARTISTS_TABLE, newArtist);
+            });
 
             return true;
         }

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:SongBird.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="SongBird.Views.CreateArtistPage"
+    Title="Artists"
+    BackgroundColor="White">
+    
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <Label FontFamily="Raleway-Regular" TextColor="#ffffff" Text="Add New SongBird" HeightRequest="48" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.BindingContext>
+        <viewmodels:CreateArtistViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+
+        <StackLayout Orientation="Vertical" Padding="24, 16" HorizontalOptions="Fill">
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 16">
+            <Label FontFamily="Raleway-Regular" Text="Artist Name" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+        </StackLayout>
+
+        <Entry x:Name="NameEntry" Placeholder="Artist Name" Text="{Binding ArtistName}" Keyboard="Default" VerticalOptions="StartAndExpand"/>    
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 16">
+            <Label FontFamily="Raleway-Regular" Text="Profile Image" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+        </StackLayout>
+
+        <ImageButton
+                Source="{Binding ImageUrl}"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                Aspect="AspectFit"
+                Command="{Binding PlaySelectedClip}"
+                />
+
+         <Label FontFamily="Raleway-Regular" TextColor="#000000" FontSize="16" Text="{Binding UploadProgress}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+         
+         <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Replace" Command="{Binding ReplaceImage}" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+         
+            
+
+            
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">  
+            <Label FontFamily="Raleway-Regular" FontSize="16" Text="{Binding ShortBio}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            <Editor FontSize="13" HeightRequest="64" WidthRequest="320" MaxLength="150" PlaceholderColor="Gray" Placeholder="Enter artist info here (150 chracter limit)" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">  
+            <Label FontFamily="Raleway-Regular" FontSize="16" Text="Biography" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+            <Editor FontSize="13" HeightRequest="150" WidthRequest="320" MaxLength="2000" PlaceholderColor="Gray" Placeholder="Enter full biog here (2000 chracter limit)" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">  
+            <Label FontFamily="Raleway-Regular" FontSize="16" Text="Social Links" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="Bandcamp" Text="Bandcamp" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="bandcamp.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="Facebook" Text="Facebook" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" MaxLength="32" HeightRequest="24" PlaceholderColor="Gray" Placeholder="facebook.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="Spotify" Text="Spotify" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" MaxLength="32" HeightRequest="24" PlaceholderColor="Gray" Placeholder="spotify.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="Soundcloud" Text="Soundcloud" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" MaxLength="32" HeightRequest="24" PlaceholderColor="Gray" Placeholder="soundcloud.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="YouTube" Text="YouTube" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" MaxLength="32" HeightRequest="24" PlaceholderColor="Gray" Placeholder="youtube.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="Instagram" Text="Instagram" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" MaxLength="32" HeightRequest="24" PlaceholderColor="Gray" Placeholder="instagram.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">  
+            <Editor IsReadOnly="True" WidthRequest="100" FontSize="13" HeightRequest="24" MaxLength="32" PlaceholderColor="Gray" Placeholder="TikTok" Text="TikTok" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+            <Editor FontSize="13" WidthRequest="180" MaxLength="32" HeightRequest="24" PlaceholderColor="Gray" Placeholder="tiktok.com/" Text="" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>    
+        </StackLayout>
+
+        <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Create" Command="{Binding CreateArtist}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">  
+            <Label FontFamily="Raleway-Regular" FontSize="16" Text="Song Clips" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+        </StackLayout>
+
+
+
+        <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="+ Add" Command="{Binding AddClipCommand}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+
+        <!--
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 16">
+            
+            <Label FontFamily="Raleway-Bold" Text="{Binding CurrentGreeting.Clip.Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+            <Label FontFamily="Raleway-Regular" TextColor="#00bf98" Text="by" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+            <Label FontFamily="Raleway-Bold" Text="{Binding CurrentGreeting.Clip.Artist.Name}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 8">
+            <Image Source="Greeting1.jpeg" WidthRequest="32" HeightRequest="32" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+            <Label FontFamily="Raleway-Light" Text="Select the clip you'd like to share, add an optional personalised message, then send your greeting to your recipient!" TextColor="#444444" FontSize = "14" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+        </StackLayout>
+
+
+
+        <Grid VerticalOptions="StartAndExpand" ColumnSpacing="0" RowSpacing="0">
+            
+            <ImageButton
+                    Source="{Binding CurrentGreeting.Clip.Image}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Command="{Binding PlaySelectedClip}"
+                    Grid.Column="0"
+                    Grid.Row="0"/>
+            <Image
+                    Source="play_white.png"
+                    WidthRequest="100"
+                    HeightRequest="100"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Opacity="0.5"/>
+         </Grid>   
+
+
+        <StackLayout Orientation="Vertical" Padding="16, 0">
+            <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Swap Clip" Command="{Binding SwapButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"/>
+        
+            
+            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                <Label FontFamily="Raleway-Regular" FontSize="16"  Text="Lyrics" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 8">
+                    <Image Source="Greeting1.jpeg" WidthRequest="32" HeightRequest="32" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+                    <Label FontFamily="Raleway-Light" Text="Please include the orginal lyrics if you can. It really helps our fabulous SongBirds to share their amazing talent!" TextColor="#444444" FontSize = "14" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+                </StackLayout>
+                <Editor FontSize="15" HeightRequest="64" MaxLength="250" PlaceholderColor="Gray" Placeholder="You'll never break and unbreakable heart." Text="{Binding CurrentGreeting.Clip.Description}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>  
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">  
+                <Label FontFamily="Raleway-Regular" FontSize="16" Text="Message" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 8">
+                    <Image Source="Greeting1.jpeg" WidthRequest="32" HeightRequest="32" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+                    <Label FontFamily="Raleway-Light" Text="Why not add a personalised message to your lucky recipient..." TextColor="#444444" FontSize = "14" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+                </StackLayout>
+                <Editor FontSize="13" HeightRequest="64" WidthRequest="320" MaxLength="250" PlaceholderColor="Gray" Placeholder="Enter message here" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                
+            </StackLayout>
+
+
+            <StackLayout Orientation="Vertical">
+                <Label FontFamily="Raleway-Regular" FontSize="16" Text="Select Recipient" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="0, 0, 0, 8">
+                    <Image Source="Greeting1.jpeg" WidthRequest="32" HeightRequest="32" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+                    <Label FontFamily="Raleway-Light" Text="If your recipient is already a SongBird Sounds user, you'll get a bonus note!" TextColor="#444444" FontSize = "14" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+                </StackLayout>
+                <Entry FontSize="13" Text="" PlaceholderColor="Gray" Placeholder="Type your recipient here" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                
+            </StackLayout>
+        </StackLayout>
+        
+
+
+
+        <Button CornerRadius="8" TextColor="#00bf98" BackgroundColor="Transparent" Text="Create" Command="{Binding NextButtonClicked}" WidthRequest="80" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
+         -->
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
